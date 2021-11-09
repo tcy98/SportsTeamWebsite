@@ -93,6 +93,36 @@ module.exports = function routes(app, logger) {
           }
         });
       });
+	
+	
+//gets sorted list of players on a team, just provide team name and field to sort
+	app.get('/team/players', async (req, res) => {
+    // obtain a connection from our pool of connections
+    pool.getConnection(function (err, connection){
+      if (err){
+        console.log(connection);
+        // if there is an issue obtaining a connection, release the connection instance and log the error
+        logger.error('Problem obtaining MySQL connection', err)
+        res.status(400).send('Problem obtaining MySQL connection'); 
+      }  else {
+			var teamName = req.body.teamName;
+			var fieldName = req.body.fieldName;
+            connection.query("select FirstName,LastName,PlayerNumber from Players join Teams on Players.TeamID = Teams.TeamID WHERE TeamName=? ORDER BY ?",[teamName,fieldName], function (err, result, fields) {
+              if (err) { 
+                // if there is an error with the query, release the connection instance and log the error
+                connection.release()
+                logger.error("Problem getting list of players: ", err);
+                res.status(400).send('Problem getting list of players'); 
+              } else { 
+                // if there is no error with the query, release the connection instance
+				res.send(result);
+                connection.release()
+                
+              }
+            });
+          }
+        });
+      });
 	  
 	//update a games score, must specify which team, which game and the score you want to update
   app.put('/games/score', async (req, res) => {
