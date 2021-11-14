@@ -107,7 +107,7 @@ module.exports = function routes(app, logger) {
       }  else {
 			var teamName = req.body.teamName;
 			var fieldName = req.body.fieldName;
-            connection.query("select FirstName,LastName,PlayerNumber from Players join Teams on Players.TeamID = Teams.TeamID WHERE TeamName=? ORDER BY ?",[teamName,fieldName], function (err, result, fields) {
+            connection.query("SELECT FirstName,LastName,PlayerNumber FROM Players join Teams on Players.TeamID = Teams.TeamID WHERE TeamName=? ORDER BY ?",[teamName,fieldName], function (err, result, fields) {
               if (err) { 
                 // if there is an error with the query, release the connection instance and log the error
                 connection.release()
