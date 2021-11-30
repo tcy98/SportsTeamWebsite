@@ -99,7 +99,23 @@ export class SportRepository {
                 })
         });
     }
-
+    getPlayersFromPlayerID(PlayerID) {
+        // let config = this.config;
+        // if (params) {
+        //     config.params = params;
+        // }
+        return new Promise((resolve, reject) => {
+            console.log("Inside axios",PlayerID);
+            axios.get(`http://${url}:8000/playerByID?PlayerID=${PlayerID}`)
+                .then(x => resolve(x.data))
+                .catch(x => {
+                    console.log(x);
+                    alert(x);
+                    reject(x);
+                })
+        });
+    }
+    
     async getAdCount(TeamID) {
         return await new Promise((resolve, reject) => {
             axios.get(`http://${url}:8000/team/adCount?teamID=${TeamID}`)
