@@ -165,7 +165,6 @@ export class LeaguePage extends React.Component {
                             <NavDropdown title="Sort by Date" id="basic-nav-dropdown">
                                 <NavDropdown.Item onClick={() => this.sortGamesbyDateASEC()}> Sort Oldest to Newest </NavDropdown.Item>
                                 <NavDropdown.Item onClick={() => this.sortGamesbyDateDESC()}> Sort Newest to Oldest </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
 
                             </NavDropdown>
 

@@ -99,14 +99,15 @@ export class Teamview extends React.Component {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
+
                 <Navbar variant="white" bg="white" expand="lg">
                     <Container fluid>
                         <Navbar.Brand >Team Roster</Navbar.Brand>
-                        <Navbar.Toggle aria-controls="navbar-white-example" />
-                        <Navbar.Collapse id="navbar-white-example">
-                            <Nav>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav class="me-auto">
                                 <NavDropdown
-                                    id="nav-dropdown-white-example"
+                                    id="basic-nav-dropdown"
                                     title="Sort Players By"
                                     menuVariant="white"
                                 >
