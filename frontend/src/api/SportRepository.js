@@ -283,21 +283,6 @@ export class SportRepository {
         });
     }
 
-    putGameScore(ID, Score, TeamNum) {
-        return new Promise((resolve, reject) => {
-            axios.put(`http://${url}:8000/games/score`, {
-                GameID: ID,
-                score: Score,
-                teamNum: TeamNum
-            })
-                .then(x => resolve(x.data))
-                .catch(x => {
-                    alert(x);
-                    reject(x);
-                })
-        });
-    }
-
     putGameHidden(GameID, IsHidden) {
         return new Promise((resolve, reject) => {
             axios.put(`http://${url}:8000/game/hide`, {
@@ -354,7 +339,7 @@ export class SportRepository {
         });
     }
 
-    putTeam1Score(GameID, Score) {
+    putTeam2Score(GameID, Score) {
         return new Promise((resolve, reject) => {
             axios.put(`http://${url}:8000/games/team2score`, {
                 team2Score: Score,
@@ -368,7 +353,7 @@ export class SportRepository {
         });
     }
 
-    putTeam1Score(GameID, Winner) {
+    putWinner(GameID, Winner) {
         return new Promise((resolve, reject) => {
             axios.put(`http://${url}:8000/games/winnerID`, {
                 winnerID: Winner,

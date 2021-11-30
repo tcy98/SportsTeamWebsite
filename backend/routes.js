@@ -1472,7 +1472,6 @@ app.put('/player/name', async (req, res) => {
   });
 });
 
-//update players name
 app.get('/team/adCount', (req, res) => {
   // obtain a connection from our pool of connections
   pool.getConnection(function (err, connection) {
