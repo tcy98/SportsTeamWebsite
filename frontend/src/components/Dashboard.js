@@ -194,7 +194,6 @@ export class Dashboard extends React.Component {
                                                             Update
                                                         </Button>
                                                     </Col>
-
                                                 </Form.Group>
                                             </Form>
                                             <br />
