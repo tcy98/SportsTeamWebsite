@@ -60,7 +60,7 @@ export const Ads = props => {
                     <small className="text-muted">just now</small>
                 </Toast.Header>
                 <Toast.Body>
-                    <a onClick={addCount} > Check out our newest merch at https://www.fanatics.com</a>
+                    <a onClick={addCount} > <a href="">Check out our newest merch at https://www.fanatics.com </a></a>
 
                 </Toast.Body>
             </Toast>
@@ -71,7 +71,7 @@ export const Ads = props => {
                     <small className="text-muted">2 seconds ago</small>
                 </Toast.Header>
                 <Toast.Body>
-                    <a onClick={addCount} >Join Our BIG BlackFriday Sell!!!!! </a>
+                    <a onClick={addCount} ><a href="" className="text-white">Join Our BIG BlackFriday Sell!!!!! </a></a>
                 </Toast.Body>
             </Toast>
         </ToastContainer>

@@ -100,34 +100,29 @@ export class Teamview extends React.Component {
                     </Container>
                 </Navbar>
 
-                <Navbar variant="white" bg="white" expand="lg">
-                    <Container fluid>
-                        <Navbar.Brand >Team Roster</Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav class="me-auto">
-                                <NavDropdown
-                                    id="basic-nav-dropdown"
-                                    title="Sort Players By"
-                                    menuVariant="white"
-                                >
-                                    <NavDropdown.Item onClick={() => { this.sortPlayersbyName(this.state.searchPlayer) }}>Last Name</NavDropdown.Item>
-                                    <NavDropdown.Item onClick={() => { this.sortPlayersbyPPG(this.state.searchPlayer) }}>Points Per Game</NavDropdown.Item>
-                                    <NavDropdown.Item onClick={() => { this.sortPlayersbyPosition(this.state.searchPlayer) }}>Position</NavDropdown.Item>
-                                </NavDropdown>
-                            </Nav>
-                        </Navbar.Collapse>
-                        <Form>
-                            <Form.Group className="mb-3" >
-                                <Form.Control type="text" onChange={e => this.setState({ namesearch: e.target.value })} placeholder="Search For Player" />
-                            </Form.Group>
-                            <Button variant="primary" onClick={() => { this.searchPlayer(this.state.namesearch) }}>
-                                Search
-                            </Button>
-                        </Form>
-                    </Container>
-
-                </Navbar>
+                <Navbar bg="light" expand="lg">
+                <Container>
+                    <Navbar.Brand>Team Roster</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <NavDropdown title="Sort players by" id="basic-nav-dropdown">
+                                <NavDropdown.Item onClick={() => { this.sortPlayersbyName(this.state.searchPlayer) }}>Last Name</NavDropdown.Item>
+                                <NavDropdown.Item onClick={() => { this.sortPlayersbyPPG(this.state.searchPlayer) }}>PPG</NavDropdown.Item>
+                                <NavDropdown.Item onClick={() => { this.sortPlayersbyPosition(this.state.searchPlayer) }}>Position</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                    </Navbar.Collapse>
+                    <Form>
+                        <Form.Group className="mb-3 pr-10" >
+                            <Form.Control type="text" onChange={e => this.setState({ namesearch: e.target.value })} placeholder="Search For Player" />
+                        </Form.Group>
+                        <Button variant="primary" onClick={() => { this.searchPlayer(this.state.namesearch) }}>
+                            Search
+                        </Button>
+                    </Form>
+                </Container>
+            </Navbar>
 
                 <Table striped bordered hover>
                     <thead>
