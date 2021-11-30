@@ -66,9 +66,17 @@ export class Dashboard extends React.Component {
     updatePlayer = () => {
         this.db.putPlayerName(this.state.PlayerID, this.state.FirstName, this.state.LastName);
         this.db.putPlayerPicture(this.state.PlayerID, this.state.Picture);
-        this.db.putPlayerPosition(this.state.PlayerID, this.state.Position);
+        this.db.putPlayerPosition(this.state.PlayerID, this.state.Position)
+        .then(
+            alert("Update success")
+        );
+        
     }
 
+
+    delPlayer = () =>{
+        this.db.deletePlayer(this.state.PlayerID);
+    }
 
 
     render() {
@@ -181,16 +189,12 @@ export class Dashboard extends React.Component {
                                                         <Form.Control size="sm" type="text" defaultValue={this.state.player_info.Position} onChange={e => this.setState({ Position: e.target.value })} />
                                                     </Col>
 
-                                                    <Col>
+                                                    <Col xs="auto">
                                                         <Button type="submit" onClick={() => { this.setState({ PlayerID: this.state.player_info.PlayerID }, () => { this.updatePlayer() }) }}>
                                                             Update
                                                         </Button>
                                                     </Col>
-                                                    {/* <Col>
-                                                    <Button type="submit" >
-                                                        Submit
-                                                    </Button>
-                                                </Col> */}
+
                                                 </Form.Group>
                                             </Form>
                                             <br />
